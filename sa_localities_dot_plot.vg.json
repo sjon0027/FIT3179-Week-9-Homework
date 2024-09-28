@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 450,
+  "title": "South Australian Government Education and Child Development Sites (as of January 2015)",
+  "projection": {"type": "equirectangular"},
+  "layer": [
+    {
+      "data": {
+        "url": "sa_localities.json",
+        "format": {"type": "topojson", "feature": "sa_localities"}
+      },
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/sjon0027/FIT3179-Week-9-Homework/refs/heads/main/2015sitelocationdata.csv"
+      },
+      "mark": {"type": "circle", "tooltip": {
+        "content": "data",
+        "fields": ["School Name", "Address", "Suburb", "Postcode"]
+      }},
+      "encoding": {
+        "longitude": {"field": "Longitude", "type": "quantitative", "title": "Longitude"},
+        "latitude": {"field": "Latitude", "type": "quantitative", "title": "Latitude"},
+        "size": {"value": 10},
+        "color": {
+          "field": "Postcode",
+          "type": "nominal",
+          "bin": true,
+          "legend": {"orient": "bottom-right", "title": "Postcode Ranges"}
+        }
+      }
+    }
+  ]
+}
