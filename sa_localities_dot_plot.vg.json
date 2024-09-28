@@ -7,7 +7,7 @@
   "layer": [
     {
       "data": {
-        "url": "sa_localities.json",
+        "url": "https://raw.githubusercontent.com/sjon0027/FIT3179-Week-9-Homework/refs/heads/main/sa_localities.json",
         "format": {"type": "topojson", "feature": "sa_localities"}
       },
       "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
